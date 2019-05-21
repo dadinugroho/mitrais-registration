@@ -1,5 +1,7 @@
 # mitrais-registration
 
+[Go to development story page](https://github.com/dadinugroho/mitrais-registration/blob/master/DEVELOPMENT)
+
 This is simple registration page using following technologies:
 
 **UI Technologies**
@@ -40,3 +42,9 @@ This is simple registration page using following technologies:
 * When clicked on the login button, the page should be redirected to login page
 
 
+*Layout*
+
+![registration page](https://github.com/dadinugroho/mitrais-registration/blob/master/registration01.png "Registration page")
+
+
+![registration_success page](https://github.com/dadinugroho/mitrais-registration/blob/master/registration02.png "Registration success page")
