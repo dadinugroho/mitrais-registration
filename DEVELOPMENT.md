@@ -16,7 +16,21 @@ The database design for user table is as follow:
 * firstName STRING NOT NULL
 * lastName STRING NOT NULL
 * dateOfBirth DATE NULL
-* gender is optional
+* gender TINYINT NULL
 * email STRING NOT NULL UNIQUE
-* password STRING NOT NULL UNIQUE
-* status int NOT NULL
+* password STRING NOT NULL  <-- not specified on the requirement but added for login purpose
+* authKey STRING NOT NULL   <-- not specified on the requirement but added for login purpose
+
+
+### Unit testing
+We need some use cases for unit testing to test the requirement:
+
+1. If Mobile number is not entered, display error if Mobile number is empty.
+2. If duplicate Mobile number is entered, display error if there is existing Mobile number already in the system.
+3. If Mobile number is not valid Indonesian phone number, display error if Mobile number is not a valid Indonesian phone number.
+4. If First name is not entered, display error if First name is empty.
+5. If Last name is not entered, display error if Last name is empty.
+6. If Date of Birth is not entered, should not raise any error.
+7. If Gender is not entered, should not raise any error
+8. If Email is not entered, produce error message
+9. If duplicate Email is entered, display error if there is existing email addres already in the system.
