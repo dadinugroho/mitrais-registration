@@ -1,6 +1,6 @@
 # mitrais-registration
 
-[Go to development story page](https://github.com/dadinugroho/mitrais-registration/blob/master/DEVELOPMENT)
+[Go to development story page](https://github.com/dadinugroho/mitrais-registration/blob/master/DEVELOPMENT.md)
 
 This is simple registration page using following technologies:
 
