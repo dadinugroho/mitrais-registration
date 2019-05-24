@@ -1,10 +1,9 @@
 # Development story
 
-This page will be about the development story of the development of registration system.
-0. System preparation and database design
-Since I am familiar with Yii 2.0 framework, I will first develop in Yii 2.0 as if the registration is processed by backend php (yii2). I will then unit test the data validation before implementing REST.
+This page will be about the development story of the development of registration system. It will be developed in two iterations. The first iteration is the registration system developed in yii framewok v2.0 and second iteration is the REST and VUE client.
 
-After that, start developing the frontend using VUE and try to connect to the yii 2.0 backend server using REST technology.
+### First iteration
+0. System preparation and database design
 
 The Yii2 project will be using extensions from :
 * [kartik practical b](http://demos.krajee.com/app-practical-b)
@@ -22,15 +21,21 @@ The database design for user table is as follow:
 * authKey STRING NOT NULL   <-- not specified on the requirement but added for login purpose
 
 
-### Unit testing
-We need some use cases for unit testing to test the requirement:
+##### Unit tests
+Use cases for unit tests to test the requirement:
 
-1. If Mobile number is not entered, display error if Mobile number is empty.
-2. If duplicate Mobile number is entered, display error if there is existing Mobile number already in the system.
-3. If Mobile number is not valid Indonesian phone number, display error if Mobile number is not a valid Indonesian phone number.
-4. If First name is not entered, display error if First name is empty.
-5. If Last name is not entered, display error if Last name is empty.
-6. If Date of Birth is not entered, should not raise any error.
-7. If Gender is not entered, should not raise any error
-8. If Email is not entered, produce error message
-9. If duplicate Email is entered, display error if there is existing email addres already in the system.
+1. Mobile number is REQUIRED, display error if Mobile number is empty.
+2. Mobile number is UNIQUE, display error if there is existing Mobile number already used in the system.
+3. Mobile number is not valid Indonesian phone number, display error if Mobile number is not a valid Indonesian phone number.
+4. First name is REQUIRED, display error if First name is empty.
+5. Last name is REQUIRED, display error if Last name is empty.
+6. Date of Birth can be NULL, should not raise any error.
+7. Gender can be NULL, should not raise any error.
+8. Email is REQUIRED, display error message if Email is empty
+9. Email is UNIQUE, display error if there is existing Email already in the system.
+
+
+##### Functional tests
+1. Registration succes, show **Login** button upon successful registration and the registration form is grayed out.
+2. Registration failed, show error(s) on the offending field(s) when there is/are validation error(s) 
+
