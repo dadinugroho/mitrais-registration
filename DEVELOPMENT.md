@@ -26,7 +26,7 @@ Use cases for unit tests to test the requirement:
 
 1. Mobile number is REQUIRED, display error if Mobile number is empty.
 2. Mobile number is UNIQUE, display error if there is existing Mobile number already used in the system.
-3. Mobile number is not valid Indonesian phone number, display error if Mobile number is not a valid Indonesian phone number.
+3. Mobile number is not valid Indonesian phone number, display error if Mobile number is not a valid Indonesian phone number. *Note: We will only consider valid Indonesian mobile number for GSM number with format 08xx.... CDMA number that are no longer exists will not validate.*
 4. First name is REQUIRED, display error if First name is empty.
 5. Last name is REQUIRED, display error if Last name is empty.
 6. Date of Birth can be NULL, should not raise any error.
