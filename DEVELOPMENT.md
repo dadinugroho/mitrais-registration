@@ -8,6 +8,7 @@ This page will be about the development story of the development of registration
 The Yii2 project will be using extensions from :
 * [kartik practical b](http://demos.krajee.com/app-practical-b)
 * [Indonesia mobile number validator](https://github.com/Borales/yii2-phone-input)
+* [combo date](https://github.com/kovalenkojuls/yii2-widget-combodate)
 
 The database design for user table is as follow:
 * ID int PK
