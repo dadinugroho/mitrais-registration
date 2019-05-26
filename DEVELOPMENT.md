@@ -2,8 +2,8 @@
 
 This page will be about the development story of the development of registration system. It will be developed in two iterations. The first iteration is the registration system developed in yii framewok v2.0 and second iteration is the REST and VUE client.
 
-### First iteration
-0. System preparation and database design
+## First iteration
+### 0. System preparation and database design
 
 The Yii2 project will be using extensions from :
 * [kartik practical b](http://demos.krajee.com/app-practical-b)
@@ -36,7 +36,21 @@ Use cases for unit tests to test the requirement:
 9. Email is UNIQUE, display error if there is existing Email already in the system.
 
 
+### 1. Registration in PHP code (yii framework 2.0)
+The registration is developed in yii framework as the basis to check that it works before moved to REST solution.
+
 ##### Functional tests
 1. Registration succes, show **Login** button upon successful registration and the registration form is grayed out.
 2. Registration failed, show error(s) on the offending field(s) when there is/are validation error(s) 
+
+
+## Second iteration
+### 2. Setup the REST in yii framework
+Yii has built in support for REST, so it would be used in here. 
+
+*TO DO: Test the REST using postman*
+
+
+### 3. Client side using VUE 
+The requirement asked to use one of the Javascript framework and VUE is chosen.
 
