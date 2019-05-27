@@ -55,6 +55,12 @@ class User extends \yii\db\ActiveRecord {
                     $phoneUtil = \libphonenumber\PhoneNumberUtil::getInstance();
                     return empty($value) ? $value : $phoneUtil->format($phoneUtil->parse($value, 'ID'), \libphonenumber\PhoneNumberFormat::INTERNATIONAL);
                 }],
+            [['dateOfBirth'], 'filter', 'filter' => function ($value) {
+                    $dob = date('Y-m-d', strtotime($value));
+                    $dob = ($dob == date('Y-m-d', strtotime('1900-01-01'))) ? null : $dob;  // assume 01-01-1900 is null value since the vue-dropdown-date does not has empty value
+                    
+                    return $dob;
+                }],
             [['mobileNumber', 'firstName', 'lastName', 'email', 'password', 'authKey'], 'trim'],
             [['mobileNumber', 'firstName', 'lastName', 'email'], 'required'],
             [['dateOfBirth'], 'date', 'format' => 'php:Y-m-d', 'message' => Yii::t('app', 'Please enter valid date.')],
