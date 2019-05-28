@@ -47,10 +47,10 @@ The registration is developed in yii framework as the basis to check that it wor
 ## Second iteration
 ### 2. Setup the REST in yii framework
 Yii has built in support for REST, so it would be used in here. 
-
-*TO DO: Test the REST using postman*
+[Testing results are atatched to the ticket](https://github.com/dadinugroho/mitrais-registration/issues/4)
 
 
 ### 3. Client side using VUE 
-The requirement asked to use one of the Javascript framework and VUE is chosen.
+The requirement asked to use one of the Javascript framework and VUE is chosen. The problem is that my development server cannot be deployed the VUE app. Instead I deployed the VUE to firebase hosting in less than 10 minutes.
+Another problem is that the firebase cannot call REST API from http. The development server did not have https setup. Hence, https was implemented in development server using lets encryot certificate. Everything is work by now.
 
