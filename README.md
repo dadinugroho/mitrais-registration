@@ -1,6 +1,8 @@
 # mitrais-registration
 
-[Demo](http://128.199.136.55/registration/)
+[Demo iteration 2 VUE](https://vue-registration.firebaseapp.com/)
+
+[Demo iteration 1 PHP (yii2 framework)](https://registration.selfip.com)
 
 [Go to development story page](https://github.com/dadinugroho/mitrais-registration/blob/master/DEVELOPMENT.md)
 
