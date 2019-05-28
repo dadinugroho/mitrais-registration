@@ -52,3 +52,9 @@ This is simple registration page using following technologies:
 
 
 ![registration_success page](https://github.com/dadinugroho/mitrais-registration/blob/master/registration02.png "Registration success page")
+
+
+### Future works:
+1. Add login page.
+2. Add login mechanism REST API call using JWT.
+
