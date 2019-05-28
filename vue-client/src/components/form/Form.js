@@ -41,7 +41,7 @@ export default {
     },
     sendFormData() {
       this.enableSubmitLoader();
-      axios.post("http://128.199.136.55/registration/api/v1/user", this.form).then(response => {
+      axios.post("https://registration.selfip.com/api/v1/user", this.form).then(response => {
         this.submitSuccess(response);
         this.disableSubmitLoader();
       }).catch(error => {

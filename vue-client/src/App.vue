@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import Form from "./components/form/Form.vue";
 
 export default {
