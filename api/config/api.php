@@ -12,6 +12,9 @@ $config = [
         'v1' => [
             'class' => 'app\api\modules\v1\Module',
         ],
+        'v1_1' => [
+            'class' => 'app\api\modules\v1_1\Module',
+        ],
     ],
     'components' => [
         'user' => [
@@ -47,7 +50,7 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => ['v1/user'],
+                    'controller' => ['v1/user', 'v1_1/user'],
                     'pluralize' => false,
                     'except' => ['index', 'view', 'update', 'delete'],
                 ],
