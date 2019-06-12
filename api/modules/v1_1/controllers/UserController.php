@@ -39,10 +39,10 @@ class UserController extends ActiveController {
         $model->email = $headers->get('email');
 
         $cid = $headers->has('cid') ? $headers->get('cid') : null;
-        $string = $model->mobileNumber . $model->firstName . $model->lastName . $model->dateOfBirth . $model->gender . $model->email . Yii::$app->params['client_id'];
-        $signature = hash_hmac('sha512', $string, Yii::$app->params['client_secret']);
+        $string = trim($model->mobileNumber) . trim($model->firstName) . trim($model->lastName) . trim($model->email) . Yii::$app->params['clientId'];
+        $signature = base64_encode(hash_hmac('sha256', $string, Yii::$app->params['clientSecret'], true));
 
-        if ($cid == Yii::$app->params['client_id'] && $signature == $headers->get('signature')) {
+        if ($cid == Yii::$app->params['clientId'] && $signature == $headers->get('signature', '')) {
             if ($model->save()) {
                 return [
                     'success' => true,
@@ -68,7 +68,8 @@ class UserController extends ActiveController {
             return [
                 'success' => false,
                 'errors' => [
-                    'mobileNumber' => Yii::t('app', 'Registration data has been tempered!')  // Put the alert on mobile number field
+                    'field' => 'mobileNumber', // Put the alert on mobile number field
+                    'message' => Yii::t('app', 'Registration data has been tempered!'),
                 ],
             ];
         }

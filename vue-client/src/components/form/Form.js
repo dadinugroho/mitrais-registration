@@ -30,8 +30,8 @@ import DateDropdown from 'vue-date-dropdown'
                 submit() {
                     this.$v.$touch();
                     if (!this.$v.$error) {
-                        this.form.cid = process.env.CLIENT_ID;
-                        this.form.signature = CryptoJS.HmacSHA512((this.form.mobileNumber + this.form.firstName + this.form.lastName + this.form.email + process.env.CLIENT_ID), process.env.CLIENT_SECRET).toString(CryptoJS.enc.Base64);
+                        this.form.cid = process.env.VUE_APP_CID;
+                        this.form.signature = CryptoJS.HmacSHA256((this.form.mobileNumber.trim() + this.form.firstName.trim() + this.form.lastName.trim() + this.form.email.trim() + process.env.VUE_APP_CID.trim()), process.env.VUE_APP_CSECRET).toString(CryptoJS.enc.Base64);
                         this.sendFormData();
                     } else {
                         this.validationError();
@@ -45,7 +45,7 @@ import DateDropdown from 'vue-date-dropdown'
                 },
                 sendFormData() {
                     this.enableSubmitLoader();
-                    axios.post(process.env.REG_SERVICE, {}, {'headers': this.form}).then(response => {
+                    axios.post(process.env.VUE_APP_REGSERVER, {}, {'headers': this.form}).then(response => {
                         this.submitSuccess(response);
                         this.disableSubmitLoader();
                     }).catch(error => {
@@ -64,6 +64,7 @@ import DateDropdown from 'vue-date-dropdown'
                     }
                 },
                 submitError(error) {
+                    console.log(error);
                     this.errorHeader = 'error.general';
                     this.errors = [{'field': null, 'message': 'error.generalMessage'}];
                     this.isError = true;
@@ -79,6 +80,7 @@ import DateDropdown from 'vue-date-dropdown'
                             return true;
                         }
                     } catch (error) {
+                        console.log(error);
                     }
 
                     return this.errors.some(el => el.field === field);
@@ -91,6 +93,7 @@ import DateDropdown from 'vue-date-dropdown'
                                 errors.push({'field': field, 'message': null});
                             }
                         } catch (error) {
+                            console.log(error);
                         }
                     }
                     return errors;
@@ -112,6 +115,7 @@ import DateDropdown from 'vue-date-dropdown'
                             this.errors = this.errors.filter(el => el.field !== field);
                         }
                     } catch (error) {
+                        console.log(error);
                     }
                 },
                 reload() {
